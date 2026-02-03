@@ -1,8 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://r66xi6rhkxgv"]
+[gd_scene load_steps=4 format=3 uid="uid://r66xi6rhkxgv"]
 
 [ext_resource type="Script" uid="uid://cuh4i0xh787xg" path="res://Entities/Enemy/enemy_controller.gd" id="1_0t3rx"]
 [ext_resource type="PackedScene" uid="uid://cpo07sdjlaqvn" path="res://Entities/Enemy/enemy.tscn" id="2_gbri2"]
+[ext_resource type="PackedScene" uid="uid://1a0ysjpmypou" path="res://Entities/Enemy/enemy_projectile.tscn" id="3_ilk6v"]
 
 [node name="EnemyController" type="Node2D"]
 script = ExtResource("1_0t3rx")
 enemy_scene = ExtResource("2_gbri2")
+enemy_bullet_scene = ExtResource("3_ilk6v")

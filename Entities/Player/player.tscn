@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dwop2amtup8yo"]
+[gd_scene load_steps=5 format=3 uid="uid://dwop2amtup8yo"]
 
 [ext_resource type="Script" uid="uid://cbak52517nlw3" path="res://Entities/Player/player.gd" id="1_3uyv8"]
 [ext_resource type="Texture2D" uid="uid://chpoekqe5jg1u" path="res://Entities/Player/Art/Player.png" id="1_mv1ah"]
+[ext_resource type="PackedScene" uid="uid://ccr46ythlt78c" path="res://Entities/Player/player_projectile.tscn" id="2_lu8i8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mv1ah"]
 size = Vector2(17, 16)
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 16
 script = ExtResource("1_3uyv8")
+bullet_scene = ExtResource("2_lu8i8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

@@ -1,17 +1,28 @@
 extends CharacterBody2D
 
 @export var speed := 120.0
+@export var bullet_scene: PackedScene
+@export var fire_cooldown := 0.4
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 @onready var half_width := sprite_2d.texture.get_width() / 2
 
+var can_fire := true
+
+func _ready() -> void:
+	add_to_group(Groups.PLAYER)
+
+func _process(delta: float) -> void:
+	if Input.is_action_pressed("FIRE") and can_fire:
+		fire()
+
 func _physics_process(delta: float) -> void:
 	var direction = 0.0
 	
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("LEFT"):
 		direction -= 1
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("RIGHT"):
 		direction += 1
 	
 	velocity.x = direction * speed
@@ -26,3 +37,14 @@ func _physics_process(delta: float) -> void:
 		half_width,
 		viewport_width - half_width
 	)
+
+func fire() -> void:
+	can_fire = false
+	var bullet = bullet_scene.instantiate()
+	get_parent().add_child(bullet)
+	bullet.global_position = global_position + Vector2(0, -12)
+	await get_tree().create_timer(fire_cooldown).timeout
+	can_fire = true
+
+func die() -> void:
+	queue_free()
