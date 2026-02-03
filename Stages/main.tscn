@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://denx66i7nifwg"]
+[gd_scene load_steps=3 format=3 uid="uid://denx66i7nifwg"]
 
 [ext_resource type="PackedScene" uid="uid://dwop2amtup8yo" path="res://Entities/Player/player.tscn" id="1_kerj0"]
+[ext_resource type="PackedScene" uid="uid://r66xi6rhkxgv" path="res://Entities/Enemy/enemy_controller.tscn" id="2_lxwtg"]
 
 [node name="Main" type="Node2D"]
 
@@ -9,3 +10,6 @@ position = Vector2(160, 120)
 
 [node name="Player" parent="." instance=ExtResource("1_kerj0")]
 position = Vector2(160, 220)
+
+[node name="EnemyController" parent="." instance=ExtResource("2_lxwtg")]
+position = Vector2(0, 20)
