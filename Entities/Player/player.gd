@@ -8,6 +8,8 @@ class_name Player extends CharacterBody2D
 
 @onready var half_width := sprite_2d.texture.get_width() / 2
 
+signal player_death
+
 var can_fire := true
 
 func _ready() -> void:
@@ -47,4 +49,5 @@ func fire() -> void:
 	can_fire = true
 
 func die() -> void:
+	emit_signal("player_death")
 	queue_free()

@@ -13,6 +13,8 @@ extends Node2D
 @export var left_margin := 8
 @export var right_margin := 312
 
+signal all_enemies_defeated
+
 var max_enemies := 24
 var move_speed := base_move_speed
 
@@ -97,3 +99,5 @@ func get_front_enemies() -> Dictionary:
 func _on_enemy_killed() -> void:
 	var count = get_tree().get_nodes_in_group(Groups.ENEMIES).size()
 	move_speed = base_move_speed + (max_enemies - count) * 5
+	if count <= 1:
+		emit_signal("all_enemies_defeated")

@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://cg5sa4r5xc5ki"]
+
+[ext_resource type="Script" uid="uid://bv0mt5ck2nlxv" path="res://Stages/end_overlay.gd" id="1_n8sa2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ix0l"]
+font_size = 42
+
+[node name="EndOverlay" type="CanvasLayer"]
+script = ExtResource("1_n8sa2")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -29.0
+offset_right = 120.0
+offset_bottom = 29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "GAME OVER"
+label_settings = SubResource("LabelSettings_3ix0l")

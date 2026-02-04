@@ -112,7 +112,7 @@ size = Vector2(16, 16)
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 4
-collision_mask = 8
+collision_mask = 40
 script = ExtResource("1_xugip")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://bcpr1mmbnshv0"]
+
+[ext_resource type="Script" uid="uid://dgo3e4lghajyv" path="res://Objects/fail_line.gd" id="1_23n52"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_lpp0k"]
+b = Vector2(320, 0)
+
+[node name="FailLine" type="Area2D"]
+collision_mask = 4
+script = ExtResource("1_23n52")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("SegmentShape2D_lpp0k")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
