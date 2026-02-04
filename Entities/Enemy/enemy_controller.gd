@@ -77,7 +77,7 @@ func fire_enemy_bullet() -> void:
 	if fronts.is_empty():
 		return
 	
-	var shooter = fronts.pick_random()
+	var shooter = fronts.values().pick_random()
 	var bullet = enemy_bullet_scene.instantiate()
 	get_parent().add_child(bullet)
 	bullet.initialize(shooter.get_enemy_type())
