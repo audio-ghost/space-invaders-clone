@@ -23,10 +23,6 @@ func _ready():
 	_spawn_grid()
 	_fire_loop()
 
-func _on_node_added(node):
-	if node is Player:
-		player = node
-
 func _process(delta: float) -> void:
 	position.x += move_speed * direction * delta
 	if _hit_edge():
