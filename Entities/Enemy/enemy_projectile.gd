@@ -15,10 +15,13 @@ func initialize(enemy_type: Enemy.EnemyType) -> void:
 	match enemy_type:
 		Enemy.EnemyType.ENEMY_1:
 			sprite.texture = ENEMY_PROJECTILE_1
+			speed = 150
 		Enemy.EnemyType.ENEMY_2:
 			sprite.texture = ENEMY_PROJECTILE_2
+			speed = 200
 		Enemy.EnemyType.ENEMY_3:
 			sprite.texture = ENEMY_PROJECTILE_3
+			speed = 250
 	
 func _physics_process(delta: float) -> void:
 	position.y += speed * delta

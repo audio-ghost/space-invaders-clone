@@ -6,7 +6,7 @@ extends Node2D
 @export var horizontal_spacing := 24
 @export var vertical_spacing := 24
 @export var enemy_bullet_scene: PackedScene
-@export var fire_interval := 2.0
+@export var fire_interval := 0.8
 
 @export var base_move_speed := 20.0
 @export var step_down_amount := 8

@@ -12,7 +12,6 @@ func _on_area_entered(area: Area2D) -> void:
 	pass
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body)
 	if body.is_in_group(Groups.ENEMIES):
 		body.die()
 	queue_free()

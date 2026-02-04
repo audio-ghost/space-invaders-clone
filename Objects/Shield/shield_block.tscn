@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dp34d6iel4xdf"]
+
+[ext_resource type="Texture2D" uid="uid://cxh5o3d05go7y" path="res://Objects/Shield/Art/Bunker Single Block.png" id="1_a7ssm"]
+[ext_resource type="Script" uid="uid://dan3m5b4rsk12" path="res://Objects/Shield/shield_block.gd" id="1_s7pgl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mwo7f"]
+size = Vector2(4, 4)
+
+[node name="ShieldBlock" type="Area2D"]
+collision_layer = 32
+collision_mask = 28
+script = ExtResource("1_s7pgl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_a7ssm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mwo7f")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
