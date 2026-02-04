@@ -4,6 +4,8 @@ class_name Enemy extends CharacterBody2D
 
 @onready var sprite: AnimatedSprite2D = $Sprite
 
+var column: int
+
 signal killed
 
 enum EnemyType {

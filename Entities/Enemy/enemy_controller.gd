@@ -23,6 +23,10 @@ func _ready():
 	_spawn_grid()
 	_fire_loop()
 
+func _on_node_added(node):
+	if node is Player:
+		player = node
+
 func _process(delta: float) -> void:
 	position.x += move_speed * direction * delta
 	if _hit_edge():
@@ -36,6 +40,7 @@ func _spawn_grid():
 			var enemy = enemy_scene.instantiate()
 			add_child(enemy)
 			enemy.killed.connect(_on_enemy_killed)
+			enemy.column = col
 			
 			#Row based enemy selection
 			match row:
@@ -72,15 +77,26 @@ func _fire_loop() -> void:
 		fire_enemy_bullet()
 
 func fire_enemy_bullet() -> void:
-	var enemies = get_tree().get_nodes_in_group(Groups.ENEMIES)
-	if enemies.is_empty():
+	var fronts = get_front_enemies()
+	if fronts.is_empty():
 		return
 	
-	var shooter = enemies.pick_random()
+	var shooter = fronts.pick_random()
 	var bullet = enemy_bullet_scene.instantiate()
 	get_parent().add_child(bullet)
 	bullet.initialize(shooter.get_enemy_type())
 	bullet.global_position = shooter.global_position + Vector2(0, 8)
+
+func get_front_enemies() -> Dictionary:
+	var fronts := {}
+	
+	for enemy in get_tree().get_nodes_in_group(Groups.ENEMIES):
+		if not enemy is Enemy:
+			continue
+		var col : int = enemy.column
+		if not fronts.has(col) or enemy.global_position.y > fronts[col].global_position.y:
+			fronts[col] = enemy
+	return fronts
 
 func _on_enemy_killed() -> void:
 	var count = get_tree().get_nodes_in_group(Groups.ENEMIES).size()

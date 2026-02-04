@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export var speed := 120.0
 @export var bullet_scene: PackedScene
@@ -13,11 +13,11 @@ var can_fire := true
 func _ready() -> void:
 	add_to_group(Groups.PLAYER)
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_pressed("FIRE") and can_fire:
 		fire()
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var direction = 0.0
 	
 	if Input.is_action_pressed("LEFT"):
