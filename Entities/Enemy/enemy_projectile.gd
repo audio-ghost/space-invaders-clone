@@ -4,9 +4,9 @@ class_name EnemyProjectile extends Area2D
 
 @onready var sprite: Sprite2D = $Sprite
 
-const ENEMY_PROJECTILE_1 := preload("uid://mbxxoqwo031u")
-const ENEMY_PROJECTILE_2 := preload("uid://cth1b5vde6hen")
-const ENEMY_PROJECTILE_3 := preload("uid://o7xqlkn8xd8r")
+const ENEMY_PROJECTILE_1 := preload("res://Entities/Enemy/Art/Enemy Projectile 1.png")
+const ENEMY_PROJECTILE_2 := preload("res://Entities/Enemy/Art/Enemy Projectile 2.png")
+const ENEMY_PROJECTILE_3 := preload("res://Entities/Enemy/Art/Enemy Projectile 3.png")
 
 func _ready() -> void:
 	add_to_group(Groups.ENEMY_PROJECTILES)

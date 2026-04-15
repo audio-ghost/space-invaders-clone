@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://denx66i7nifwg"]
+[gd_scene format=3 uid="uid://denx66i7nifwg"]
 
 [ext_resource type="PackedScene" uid="uid://dwop2amtup8yo" path="res://Entities/Player/player.tscn" id="1_kerj0"]
 [ext_resource type="Script" uid="uid://ccdjh68sh5rrb" path="res://Stages/main.gd" id="1_n1pa2"]
@@ -6,34 +6,34 @@
 [ext_resource type="PackedScene" uid="uid://bcpr1mmbnshv0" path="res://Objects/fail_line.tscn" id="3_74i4i"]
 [ext_resource type="PackedScene" uid="uid://d2qts7ikfmdup" path="res://Objects/Shield/shield.tscn" id="3_dqdwq"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" unique_id=1829445400]
 script = ExtResource("1_n1pa2")
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1177787228]
 position = Vector2(160, 120)
 
-[node name="Player" parent="." instance=ExtResource("1_kerj0")]
+[node name="Player" parent="." unique_id=1369341066 instance=ExtResource("1_kerj0")]
 position = Vector2(160, 220)
 
-[node name="EnemyController" parent="." instance=ExtResource("2_lxwtg")]
+[node name="EnemyController" parent="." unique_id=1227433850 instance=ExtResource("2_lxwtg")]
 position = Vector2(0, 20)
 
-[node name="FailLine" parent="." instance=ExtResource("3_74i4i")]
+[node name="FailLine" parent="." unique_id=2135542752 instance=ExtResource("3_74i4i")]
 position = Vector2(0, 180)
 
-[node name="Shields" type="Node2D" parent="."]
+[node name="Shields" type="Node2D" parent="." unique_id=274146314]
 position = Vector2(0, 180)
 
-[node name="Shield" parent="Shields" instance=ExtResource("3_dqdwq")]
+[node name="Shield" parent="Shields" unique_id=925536758 instance=ExtResource("3_dqdwq")]
 position = Vector2(20, 0)
 
-[node name="Shield2" parent="Shields" instance=ExtResource("3_dqdwq")]
+[node name="Shield2" parent="Shields" unique_id=880345949 instance=ExtResource("3_dqdwq")]
 position = Vector2(100, 0)
 
-[node name="Shield3" parent="Shields" instance=ExtResource("3_dqdwq")]
+[node name="Shield3" parent="Shields" unique_id=1419856772 instance=ExtResource("3_dqdwq")]
 position = Vector2(180, 0)
 
-[node name="Shield4" parent="Shields" instance=ExtResource("3_dqdwq")]
+[node name="Shield4" parent="Shields" unique_id=418196178 instance=ExtResource("3_dqdwq")]
 position = Vector2(260, 0)
 
 [connection signal="player_death" from="Player" to="." method="_on_player_player_death"]
